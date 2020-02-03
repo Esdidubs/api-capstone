@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deck Guessing Game</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>High or Low Game</h1>
+    </header>
+    <main>
+        <form id="cardForm">
+            <button id="newDeck">Start the Game</button>           
+            <section class="results hidden">                
+                <div class="results-sec"></div>
+                <button id="higher" class="drawDeck hidden" value="high">Higher</button>
+                <button id="lower" class="drawDeck hidden" value="low">Lower</button>
+                <ul class="scores">
+                    <li>Number of cards left in deck: 52</li>
+                    <li>Correct guesses: 0</li>
+                    <li>Incorrect guesses: 0</li>
+                </ul>                
+            </section>
+            <ul class="hints hidden">
+                <li>Higher Card Probability: 0%</li>
+                <li>Lower Card Probability: 0%</li>
+                <li>Same Card Probability: 0%</li>
+            </ul>
+            <button id="hintToggle" class="hidden">Show/Hide Hints</button>
+            <button id="shuffle" class="hidden">Restart the Game</button>
+        </form>
+        <div id="resultsBox" class="hidden">
+            <h2>Final Score: ${correctGuesses}</h2>
+            <button id="tweet" class="">Tweet Score</button>
+            <button id="shuffle" class="">Play Again</button>
+        </div>
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>

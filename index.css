@@ -1,0 +1,12 @@
+.hidden {
+    display: none;
+}
+
+.cards {
+    height: 300px;
+}
+
+body {
+    color: white;
+    background-color: #308834;
+}
