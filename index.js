@@ -160,8 +160,8 @@ function fixValues(){
 function displayCard(image){
   $('.results-sec').replaceWith(
     `<div class="results-sec">
-    <img src="${cardBack}" class="cards">
-    <img src="${image}" class="cards">
+    <img src="${cardBack}" class="cards" alt="Deck of Cards">
+    <img src="${image}" class="cards" alt="${currentCard.value} of ${currentCard.suit}">
     </div>`
   )
   $('.results').removeClass('hidden');
@@ -226,8 +226,8 @@ function scoreDisplay(){
 function displayResults(){  
   $('#resultsBox').replaceWith(
     `<div id="resultsBox" class="">
-      <img src="${cardBack}" class="cards">
-      <img src="${currentCard.image}" class="cards">
+      <img src="${cardBack}" class="cards" alt="Deck of Cards">
+      <img src="${currentCard.image}" class="cards"  alt="${currentCard.value} of ${currentCard.suit}">
       <li>Number of cards left in deck: ${numberOfCards}</li>
       <li>Correct guesses: ${correctGuesses}</li>
       <li>Incorrect guesses: ${incorrectGuesses}</li>

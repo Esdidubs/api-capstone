@@ -4,6 +4,7 @@
 
 .cards {
     height: 300px;
+    background: url('Images/Loading.png') no-repeat;
 }
 
 body {
