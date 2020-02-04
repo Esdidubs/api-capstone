@@ -20,7 +20,7 @@ let currentGuess = {
   type: '',
   highLow: ''
 }
-let cardBack = 'https://i.imgur.com/9LTTPdE.png';
+let cardBack = './Images/CardBack.png';
 
 function getDeck(url){
   fetch(url)
@@ -218,7 +218,7 @@ function scoreDisplay(){
   
   if(numberOfCards === 0){
     $('#cardForm').addClass('hidden');
-    cardBack = 'https://i.imgur.com/E9WwEqf.png';
+    cardBack = './Images/EmptyBack.png';
     displayResults();
   }
 }
