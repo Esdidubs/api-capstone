@@ -1,4 +1,6 @@
 'use strict'
+
+// Global Variables
 let countA = 4, count2 = 4, count3 = 4, count4 = 4, count5 = 4, count6 = 4, count7 = 4, count8 = 4, count9 = 4, count10 = 4, countJ = 4, countQ = 4, countK = 4;
 let highProb = 0, lowProb = 0, sameProb = 0;
 let deckID = '';
@@ -16,12 +18,9 @@ let currentCard = {
   value: '',
   image: ''
 }
-let currentGuess = {
-  type: '',
-  highLow: ''
-}
 let cardBack = './Images/CardBack.png';
 
+// Fetches the API to create a new deck
 function getDeck(url){
   fetch(url)
   .then(response => response.json())
@@ -30,11 +29,13 @@ function getDeck(url){
   .catch(error => alert("That wasn't supposed to happen. Try again."));
 }
 
+// Updates the global variable and draws a card to start
 function startGame(deckInfo){
   deckID = deckInfo.deck_id;
   drawCard('https://deckofcardsapi.com/api/deck/' + deckID + '/draw/?count=1');
 }
 
+// Fetches the shuffle API information
 function shuffleDeck(url){
   fetch(url)
   .then(response => response.json())
@@ -43,13 +44,17 @@ function shuffleDeck(url){
   .catch(error => alert("That wasn't supposed to happen. Try again."));
 }
 
+// Resets all of the scores, the number of cards, and draws a card from the API
 function resetGame(deckInfo){
   numberOfCards = 52;
   correctGuesses = 0;
   incorrectGuesses = 0;
+  countA = 4, count2 = 4, count3 = 4, count4 = 4, count5 = 4, count6 = 4, count7 = 4, count8 = 4, count9 = 4, count10 = 4, countJ = 4, countQ = 4, countK = 4;
+  highProb = 0, lowProb = 0, sameProb = 0;
   drawCard('https://deckofcardsapi.com/api/deck/' + deckID + '/draw/?count=1');
 }
 
+// Fetches the card info from the API
 function drawCard(url){
   displayLoadingCard();
   fetch(url)
@@ -59,6 +64,7 @@ function drawCard(url){
   .catch(error => alert("That wasn't supposed to happen. Try again."));
 }
 
+// Displays a loading card image until the API successfully pushes the card
 function displayLoadingCard(){
   $('.results-sec').replaceWith(
     `<div class="results-sec">
@@ -69,6 +75,7 @@ function displayLoadingCard(){
   $('.results').removeClass('hidden');
 }
 
+// Updates the variables, runs the functions, displays the card and score
 function updateInfo(cardInfo){
   numberOfCards = cardInfo.remaining;
   currentCard.suit = cardInfo.cards[0].suit;
@@ -84,6 +91,7 @@ function updateInfo(cardInfo){
   }
 }
 
+// Updates the count based on the card drawn
 function showProb(){
     return currentCard.value === "ACE" ? countA--
            : currentCard.value === "2" ? count2--
@@ -100,6 +108,7 @@ function showProb(){
            : countK--;
 }
 
+// Calculates the probability of the next card being higher, lower, or the same.
 function calcProb(){
   if(currentCard.value === "ACE"){
     highProb = (Math.round((count2+count3+count4+count5+count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
@@ -156,6 +165,7 @@ function calcProb(){
   }  
 }
 
+// Makes the Jack, Queen, King, and Ace a numerical value
 function fixValues(){
   if(currentCard.value === "JACK"){
     currentCard.value = "11";
@@ -168,6 +178,7 @@ function fixValues(){
   }
 }
 
+// Displays the card and unhides the score section
 function displayCard(image){
   $('.results-sec').replaceWith(
     `<div class="results-sec">
@@ -178,10 +189,8 @@ function displayCard(image){
   $('.results').removeClass('hidden');
 }
 
+// Determines if guess was correct or incorrect
 function handleGuess(){
-  console.log("new guess");
-  console.log(parseInt(priorCard.value));
-  console.log(parseInt(currentCard.value));
   if(parseInt(priorCard.value) > parseInt(currentCard.value)){
     if(hl === "low"){
       correctGuesses++;
@@ -200,10 +209,11 @@ function handleGuess(){
   scoreDisplay();
 }
 
+// Displays the scores and the probability
 function scoreDisplay(){
   $('.scores').replaceWith(
     `<ul class="scores">
-      <li>Number of cards left in deck: ${numberOfCards}</li>
+      <li>Cards in Deck: ${numberOfCards}</li>
       <li>Correct guesses: ${correctGuesses}</li>
       <li>Incorrect guesses: ${incorrectGuesses}</li>
     </ul>`
@@ -226,7 +236,6 @@ function scoreDisplay(){
     )
   }
   
-  
   if(numberOfCards === 0){
     $('#cardForm').addClass('hidden');
     cardBack = './Images/EmptyBack.png';
@@ -234,12 +243,13 @@ function scoreDisplay(){
   }
 }
 
+// Displays the final score, a Twitter button, and the empty deck. Hides option of guessing.
 function displayResults(){  
   $('#resultsBox').replaceWith(
     `<div id="resultsBox" class="">
       <img src="${cardBack}" class="cards" alt="Deck of Cards">
       <img src="${currentCard.image}" class="cards"  alt="${currentCard.value} of ${currentCard.suit}">
-      <li>Number of cards left in deck: ${numberOfCards}</li>
+      <li>Cards in Deck: ${numberOfCards}</li>
       <li>Correct guesses: ${correctGuesses}</li>
       <li>Incorrect guesses: ${incorrectGuesses}</li>
         <h2>Final Score: ${correctGuesses}</h2>
@@ -251,6 +261,7 @@ function displayResults(){
   )
 }
 
+// Events for all of the buttons
 function buttons() {
   $('#cardForm').on( "click", "#newDeck", function() {
     event.preventDefault();
@@ -259,6 +270,7 @@ function buttons() {
     $('#shuffle').toggleClass('hidden');
     $('.drawDeck').toggleClass('hidden');
     $('#newDeck').toggleClass('hidden');
+    $('.description').toggleClass('hidden');
     $('#hintToggle').toggleClass('hidden');
   });
 
@@ -288,6 +300,7 @@ function buttons() {
   });
 }
 
+// Items to run in the beginning of the page load
 $(function() {
   buttons();
 });
