@@ -51,11 +51,22 @@ function resetGame(deckInfo){
 }
 
 function drawCard(url){
+  displayLoadingCard();
   fetch(url)
   .then(response => response.json())
   .then(responseJson => 
     updateInfo(responseJson))
   .catch(error => alert("That wasn't supposed to happen. Try again."));
+}
+
+function displayLoadingCard(){
+  $('.results-sec').replaceWith(
+    `<div class="results-sec">
+    <img src="${cardBack}" class="cards" alt="Deck of Cards">
+    <img src='./Images/Loading.png' class="cards" alt="Loading">
+    </div>`
+  )
+  $('.results').removeClass('hidden');
 }
 
 function updateInfo(cardInfo){
