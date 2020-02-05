@@ -111,57 +111,57 @@ function showProb(){
 // Calculates the probability of the next card being higher, lower, or the same.
 function calcProb(){
   if(currentCard.value === "ACE"){
-    highProb = (Math.round((count2+count3+count4+count5+count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((count2+count3+count4+count5+count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(0);
     lowProb = 0;
-    sameProb = (Math.round((countA)/numberOfCards * 100)).toFixed(2);
+    sameProb = (Math.round((countA)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "2"){
-    highProb = (Math.round((count3+count4+count5+count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((count2)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((count3+count4+count5+count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((count2)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "3"){
-    highProb = (Math.round((count4+count5+count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA+count2)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((count3)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((count4+count5+count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA+count2)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((count3)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "4"){
-    highProb = (Math.round((count5+count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA+count2+count3)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((count4)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((count5+count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA+count2+count3)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((count4)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "5"){
-    highProb = (Math.round((count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA+count2+count3+count4)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((count5)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((count6+count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA+count2+count3+count4)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((count5)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "6"){
-    highProb = (Math.round((count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA+count2+count3+count4+count5)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((count6)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((count7+count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA+count2+count3+count4+count5)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((count6)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "7"){
-    highProb = (Math.round((count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA+count2+count3+count4+count5+count6)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((count7)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((count8+count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA+count2+count3+count4+count5+count6)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((count7)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "8"){
-    highProb = (Math.round((count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((count8)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((count9+count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((count8)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "9"){
-    highProb = (Math.round((count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7+count8)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((count9)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((count10+countJ+countQ+countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7+count8)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((count9)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "10"){
-    highProb = (Math.round((countJ+countQ+countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7+count8+count9)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((count10)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((countJ+countQ+countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7+count8+count9)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((count10)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "JACK"){
-    highProb = (Math.round((countQ+countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7+count8+count9+count10)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((countJ)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((countQ+countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7+count8+count9+count10)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((countJ)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "QUEEN"){
-    highProb = (Math.round((countK)/numberOfCards * 100)).toFixed(2);
-    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7+count8+count9+count10+countJ)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((countQ)/numberOfCards * 100)).toFixed(2);
+    highProb = (Math.round((countK)/numberOfCards * 100)).toFixed(0);
+    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7+count8+count9+count10+countJ)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((countQ)/numberOfCards * 100)).toFixed(0);
   } else if(currentCard.value === "KING"){
     highProb = 0;
-    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7+count8+count9+count10+countJ+countQ)/numberOfCards * 100)).toFixed(2);
-    sameProb = (Math.round((countK)/numberOfCards * 100)).toFixed(2);
+    lowProb = (Math.round((countA+count2+count3+count4+count5+count6+count7+count8+count9+count10+countJ+countQ)/numberOfCards * 100)).toFixed(0);
+    sameProb = (Math.round((countK)/numberOfCards * 100)).toFixed(0);
   }  
 }
 
